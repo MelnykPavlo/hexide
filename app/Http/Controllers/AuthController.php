@@ -26,7 +26,7 @@ class AuthController extends Controller
             ], 401);
         }
 
-        $user = Auth::user();
+        $user = Auth::guard("api")->user();
         return response()->json([
             'status' => 'success',
             'user' => $user,
